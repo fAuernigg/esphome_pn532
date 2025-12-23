@@ -22,6 +22,9 @@ class PN532Timeout : public Component {
   void loop() override;
 
  protected:
+  void on_successful_poll_() override;
+  uint32_t last_response_ms_{0};
+
   pn532::PN532 *pn532_{nullptr};
   binary_sensor::BinarySensor *timeout_sensor_{nullptr};
 
